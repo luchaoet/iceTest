@@ -17,6 +17,3 @@
 * 布局文件: `src/layouts`
 * 通用组件: `src/components`
 * 页面文件: `src/pages`
-
-效果图:
-![screenshot](https://img.alicdn.com/tfs/TB1IM1JmuuSBuNjy1XcXXcYjFXa-1920-1080.png)
