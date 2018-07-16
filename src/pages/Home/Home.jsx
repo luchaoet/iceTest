@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { http } from '../../utils/http';
+import { http } from '../../utils/http';
 
 export default class Home extends Component {
   static displayName = 'Home';
@@ -14,13 +14,20 @@ export default class Home extends Component {
   }
 
   getList = async () => {
-    // http('/rpa/data/homepage/app/develop/data',parmas).then(res=>{
-    //   console.log(1,res) // 2
-    // });
-    // console.log(2) // 1
-    
-    // let tem = await http('/rpa/data/homepage/app/develop/data',parmas);
-    // console.log(3,tem) // 3
+    const params = {
+      currentPage: 1,
+      pageSize: 6,
+      status: '',
+      departmentId:'',
+      roleId:'',
+    }
+    // /services/enterprise/employee/list?currentPage=1&pageSize=15&status=-1&departmentId=-1&roleId=-1
+    http('/services/enterprise/employee/list',params).then( res => {
+      console.log(res)
+    })
+
+    // let tem = await http('/services/cs/user/baseinfo');
+    // console.log(tem)
     // console.log(4) // 4
   }
 
