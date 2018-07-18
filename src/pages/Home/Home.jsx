@@ -22,13 +22,13 @@ export default class Home extends Component {
       roleId:'',
     }
     // /services/enterprise/employee/list?currentPage=1&pageSize=15&status=-1&departmentId=-1&roleId=-1
-    http('/services/enterprise/employee/list',params).then( res => {
-      console.log(res)
-    })
+    // http('/services/enterprise/employee/list',params).then( res => {
+    //   console.log(res)
+    // })
 
-    // let tem = await http('/services/cs/user/baseinfo');
-    // console.log(tem)
-    // console.log(4) // 4
+    let tem = await http('/services/cs/user/baseinfo');
+    console.log(tem)
+    console.log(4) // 4
   }
 
   render() {
