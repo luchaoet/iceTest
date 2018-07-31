@@ -8,18 +8,13 @@ const hours = two(date.getHours());
 const minutes = two(date.getMinutes());
 const seconds = two(date.getSeconds());
 
+const par = process.argv.splice(2)[0];
 
-const text = '1使用fs.appendFile追加文件内容';
-console.log(`${year}-${month}-${day} ${hours}:${}`)
-return;
-fs.appendFile('./log.js', `\r\n// ${text}`, function () {});
+const text = `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${par}`;
+
+fs.appendFile('./README.md', `\r* ${text}`, function () {});
 
 function two(num){
 	const tem = num < 10 ? `0${num}` : num;
 	return tem;
 }
-
-/**
- * log 记录
-*/
-

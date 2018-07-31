@@ -17,3 +17,6 @@
 * 布局文件: `src/layouts`
 * 通用组件: `src/components`
 * 页面文件: `src/pages`
+
+> git log 记录
+* 2018-08-01 00:15:54 添加log.js,代码上传时自动保存log记录至README.md文件
