@@ -4,6 +4,7 @@
 
 import HeaderAsideFooterLayout from './layouts/HeaderAsideFooterLayout';
 import Home from './pages/Home';
+import Flex from './pages/Flex';
 import NotFound from './pages/NotFound';
 
 const routerConfig = [
@@ -13,9 +14,14 @@ const routerConfig = [
     component: Home,
   },
   {
+    path: '/flex',
+    // layout: HeaderAsideFooterLayout,
+    component: Flex,
+  },
+  {
     path: '*',
     layout: HeaderAsideFooterLayout,
-    component: NotFound,
+    component: Flex,
   },
 ];
 

@@ -1,0 +1,40 @@
+.box{
+	display: flex;
+	padding: 20px;
+	height: 700px;
+	width: 500px;
+	background-color: #ededed;
+	// flex-direction: row;
+	// flex-direction: row-reverse;
+	// flex-direction: column;
+	// flex-direction: column-reverse;
+
+	flex-wrap: nowrap;
+	// flex-wrap: wrap;
+	// flex-wrap: wrap-reverse;
+
+	// justify-content: flex-start;
+	// justify-content: flex-end;
+	// justify-content: center;
+	justify-content: space-between;
+	// justify-content: space-around;
+
+	// align-items: flex-start;
+	// align-items: flex-end;
+	// align-items: center;
+	// align-items: baseline;
+	// align-items: stretch;
+
+	align-content: stretch;
+	span{
+    line-height: 28px;
+    background-color: #d8d17c;
+    display: inline-flex;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    align-items: center;
+    justify-content: center;
+	}
+}
