@@ -6,6 +6,7 @@ import HeaderAsideFooterLayout from './layouts/HeaderAsideFooterLayout';
 import Home from './pages/Home';
 import Flex from './pages/Flex';
 import NotFound from './pages/NotFound';
+import About from './pages/About'
 
 const routerConfig = [
   {
@@ -17,6 +18,10 @@ const routerConfig = [
     path: '/flex',
     // layout: HeaderAsideFooterLayout,
     component: Flex,
+  },
+  {
+    path: '/about',
+    component: About,
   },
   {
     path: '*',

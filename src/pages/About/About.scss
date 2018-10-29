@@ -1,0 +1,44 @@
+
+body,html,#ice-container{
+    height: 100%;
+}
+body{
+    padding: 10px;
+    font-family: Georgia;
+}
+.pap{
+    dt{
+        font: normal 50px/180% Georgia;
+        line-height: 48px;
+        
+        a{
+            color: #333;
+            font-weight: 600;
+            &:hover{
+                background: url('../../utils/images/block.png') repeat-x 0 85%/1px;
+                // text-decoration:underline;
+            }
+
+        }
+    }
+    dd{
+        overflow: hidden;
+        margin: 0;
+        padding: 24px;
+        
+        img{
+            float: left;
+            width: 500px;
+            height: auto;
+        }
+        p{
+            float: left;
+            margin: 0;
+            width: calc(100% - 500px);
+            padding: 0 20px;
+            box-sizing: border-box;
+            font-size: 27px;
+            line-height: 31px;
+        }
+    }
+}
