@@ -42,3 +42,30 @@ body{
         }
     }
 }
+.about-page{
+    // height: 200%;
+    // width: 200%;
+}
+
+/*滚动条样式*/
+
+/* 滚动条 */
+::-webkit-scrollbar { 
+    /* 高 宽 分别对应横竖滚动条的 高 宽 */
+    width: 6px;
+    height: 6px;
+}
+
+/*滚动条里面滑块*/
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #333;
+    opacity: .6;
+    transition: opacity ease-in-out .2s;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+    // border-radius: 4px;
+    background-color: #f9f9fb;
+}

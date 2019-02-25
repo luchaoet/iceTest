@@ -26,12 +26,16 @@ export default class Home extends Component {
     //   console.log(res)
     // })
 
-    let tem = await http('/services/cs/user/baseinfo');
-    console.log(tem)
-    console.log(4) // 4
+    // let tem = await http('/services/cs/user/baseinfo');
+    // console.log(tem)
+    // console.log(4) // 4
   }
 
   render() {
-    return <div className="home-page">哈哈哈哈哈哈</div>;
+    return (
+      <div className="home-page">
+        <img src={require('../../utils/images/news.jpg')} alt=""/>
+      </div>
+    );
   }
 }

@@ -19,6 +19,7 @@
     "node-sass": "^4.9.0",
     "prop-types": "^15.5.8",
     "react-document-title": "^2.0.3",
+    "react-monaco-editor": "^0.24.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "reqwest": "^2.0.5"
