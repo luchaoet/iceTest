@@ -22,7 +22,6 @@ export default class Home extends Component {
   }
 
   /**
-   * 获取某年某月的天数 默认今年今月
    * 
    * 获取本月最后一天的日子 即可知道本月有多少天
    * month = 4 时
@@ -37,7 +36,7 @@ export default class Home extends Component {
   /**
    * 获取某年某月某日是当年的第几周 默认今年今月今日
    */
-  dateIsWeek(time) {
+  dayIsWeek(time) {
     const [year, month, date] = time.split(/-|\//);
     // 该年1月1日星期几
     const w = this.dateIsDay(`${year}/1/1`);
@@ -55,7 +54,7 @@ export default class Home extends Component {
     var myDate = new Date(time);
     return myDate.getDay();
   }
-  
+
   /**
    * 天数间隔
    */
