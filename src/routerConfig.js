@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Flex from './pages/Flex';
 import NotFound from './pages/NotFound';
 import About from './pages/About'
+import Mine from './pages/Mine'
 
 const routerConfig = [
   {
@@ -22,6 +23,10 @@ const routerConfig = [
   {
     path: '/about',
     component: About,
+  },
+  {
+    path: '/mine',
+    component: Mine,
   },
   {
     path: '*',

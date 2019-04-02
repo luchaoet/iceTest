@@ -1,0 +1,6 @@
+@function pxToVw($px, $screen-width: 750) { 
+    @return ($px / $screen-width) * 100vw;
+}
+img{
+    width: pxToVw(100)
+}

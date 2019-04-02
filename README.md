@@ -18,10 +18,6 @@
 * 通用组件: `src/components`
 * 页面文件: `src/pages`
 
-> git log 记录
-
-* 2018-08-01 00:15:54 添加log.js,代码上传时自动保存log记录至README.md文件
-* 2018-08-03 01:51:30 修改http.js
 
 引入 react-monaco-editor编辑器
 
@@ -42,3 +38,8 @@ module.exports = async function (args, subprocess) {
 })
 ```
 
+
+> git log 记录
+
+* 2018-08-01 00:15:54 添加log.js,代码上传时自动保存log记录至README.md文件
+* 2018-08-03 01:51:30 修改http.js* 2019-04-02 17:29:42 封装时间函数

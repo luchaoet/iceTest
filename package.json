@@ -16,7 +16,7 @@
     "classnames": "^2.2.5",
     "enquire-js": "^0.1.2",
     "foundation-symbol": "^0.1.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.11.0",
     "prop-types": "^15.5.8",
     "react-document-title": "^2.0.3",
     "react-monaco-editor": "^0.24.0",
@@ -32,7 +32,8 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
-    "ice-scripts": "^1.1.1"
+    "ice-scripts": "^1.1.1",
+    "tmp": "^0.1.0"
   },
   "scripts": {
     "start": "ice dev",
