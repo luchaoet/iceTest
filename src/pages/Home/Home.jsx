@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { http } from '../../utils/http';
 import './Home.scss'
+import MDReactComponent from 'markdown-react-js';
 
 export default class Home extends Component {
   static displayName = 'Home';
@@ -90,9 +91,26 @@ export default class Home extends Component {
   }
 
   render() {
+    const text = `
+# 111
+## 222
+### 333
+#### 4444
+##### 55555
+###### 6666
+\`\`\`js
+var a = 1;
+var b = 2;
+\`\`\`
+|title|value|
+|---|---|
+|a|b|
+      `;
+    
     return (
       <div className="home-page">
-        <img src={require('../../utils/images/news.jpg')} alt=""/>
+        {/* <img src={require('../../utils/images/news.jpg')} alt=""/> */}
+        <MDReactComponent text={text} />
       </div>
     );
   }
