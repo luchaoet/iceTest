@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { http } from '../../utils/http';
 import './Home.scss'
 import MDReactComponent from 'markdown-react-js';
+import Com01 from './components/Com01'
+import Com02 from './components/Com02'
 
 export default class Home extends Component {
   static displayName = 'Home';
@@ -111,6 +113,9 @@ var b = 2;
       <div className="home-page">
         {/* <img src={require('../../utils/images/news.jpg')} alt=""/> */}
         <MDReactComponent text={text} />
+
+        <Com01 />
+        <Com02 />
       </div>
     );
   }

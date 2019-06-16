@@ -12,7 +12,7 @@ import Mine from './pages/Mine'
 const routerConfig = [
   {
     path: '/',
-    layout: HeaderAsideFooterLayout,
+    // layout: HeaderAsideFooterLayout,
     component: Home,
   },
   {
