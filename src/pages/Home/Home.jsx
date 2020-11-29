@@ -10,18 +10,33 @@ export default class Home extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      value: 0
+    };
   }
 
   componentDidMount() {
-    // 某月的天数
-    console.log('某月的天数',this.monthDays('2019-2'))
-    // 某日是第几周
-    console.log('某日是第几周',this.dayIsWeek('2018-8-20'))
-    // 星期几
-    console.log('某日星期几',this.dateIsDay('2019/04/02'))
-    // 天数间隔
-    console.log('间隔天数',this.dayDiff('2019-4-7', '2018-4-10'))
+    this.setState({value: this.state.value + 1}, () => console.log('1 set'))
+    console.log('打印 1', this.state.value) // 0
+    
+    this.setState({value: this.state.value + 1}, () => console.log('2 set'))
+    console.log('打印 2', this.state.value) // 0
+    
+    setTimeout(() => {
+      this.setState({value: this.state.value + 1}, () => console.log('3 set'))
+      console.log('打印 3', this.state.value) // 2
+      
+      this.setState({value: this.state.value + 1}, () => console.log('4 set'))
+      console.log('打印 4', this.state.value) // 3
+    }, 0)
+    // // 某月的天数
+    // console.log('某月的天数',this.monthDays('2019-2'))
+    // // 某日是第几周
+    // console.log('某日是第几周',this.dayIsWeek('2018-8-20'))
+    // // 星期几
+    // console.log('某日星期几',this.dateIsDay('2019/04/02'))
+    // // 天数间隔
+    // console.log('间隔天数',this.dayDiff('2019-4-7', '2018-4-10'))
   }
 
   /**

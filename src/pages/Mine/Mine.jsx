@@ -1,49 +1,69 @@
-import React, { Component } from 'react';
-import './Mine.scss'
-import One from './components/One/One'
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import "./Mine.scss";
+import { Icon } from "@icedesign/base";
+import Menu from "../../components/menu";
 
 export default class Mine extends Component {
-  static displayName = 'About';
-
-  static childContextTypes = {
-    color: PropTypes.string
-  }
-
   constructor(props) {
     super(props);
-    this.state = {
-      
-    };
+    this.state = {};
   }
 
-  getChildContext() {
-    return {
-      color: 'red'
-    }
-  }
-
-
-  componentWillMount() {
-		
-  }
+  componentWillMount() {}
 
   render() {
-    return (
-      <div className="login-container">
-          {/* <div id="alibaba-login-iframe">
-              <div id="alibaba-login-iframe-loading">
-                  <p className='header'>提示</p>
-                  <p className='body'>该帐号已在其他电脑登录，本机登录后会导致该帐号在其他电脑上自动退出并终止正在运行的流程</p>
-                  <div className='footer'>
-                    <button id="J_ConfirmLogin">继续登录</button>
-                    <button id="J_CancelLogin">取消登录</button>
-                  </div>
-              </div>    
-          </div> */}
+    const dataSource = [
+      {
+        title: "哈哈哈",
+        key: "ha",
+        children: [
+          {
+            title: "哈哈哈",
+            key: "hei",
+          },
+          {
+            title: "哈哈哈",
+            key: "hei2",
+            children: [
+              { title: "哈哈哈", key: "hei3" },
+              {
+                title: "哈哈哈",
+                key: "hei4",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "哈哈哈",
+        key: "ha2",
+        children: [
+          {
+            title: "哈哈哈",
+            key: "hei22",
+          },
+          {
+            title: "哈哈哈",
+            key: "hei23",
+            children: [
+              { title: "哈哈哈", key: "hei32" },
+              {
+                title: "哈哈哈",
+                key: "hei42",
+                children: [
+                  { title: "哈哈哈", key: "hei321" },
+                  {
+                    title: "哈哈哈",
+                    key: "hei421",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ];
 
-          <One />
-      </div>
-    )
+    return <Menu draggable dataSource={dataSource} expandedKeys={["hei4"]} />;
   }
 }
