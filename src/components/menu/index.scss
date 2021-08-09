@@ -4,28 +4,28 @@
   dd {
     margin: 0;
   }
+  .tree {
+    user-select: none;
+  }
+  .tree-wrap {
+    display: inline-block;
+    & > .tree > .next-tree-node {
+      &:before {
+        border-top: 1px dashed transparent;
+      }
+      & > .next-tree-node-inner {
+        &:after {
+          border-top-color: transparent;
+        }
+      }
+    }
+  }
 }
 ul,
 li {
   list-style-type: none;
 }
 
-.tree {
-  user-select: none;
-}
-.tree-wrap {
-  display: inline-block;
-  & > .tree > .next-tree-node {
-    &:before {
-      border-top: 1px dashed transparent;
-    }
-    & > .next-tree-node-inner {
-      &:after {
-        border-top-color: transparent;
-      }
-    }
-  }
-}
 .next-tree-node {
   position: relative;
   &:before {
