@@ -6,6 +6,7 @@ import Tree from "../../components/Tree";
 import { uuid } from '../../utils/tools'
 import ReactIScroll from 'react-iscroll'
 import iScroll from 'iscroll'
+import DraggleLayout from "../../components/DraggleLayout";
 
 export default class Mine extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class Mine extends Component {
               label: '子流程',
               id: uuid(),
               type: 'sub-file',
-              edit: true
+              // edit: true
             },
             {
               label: '分组',
@@ -121,10 +122,10 @@ export default class Mine extends Component {
         <Tree dataSource={dataSource2} defaultExpandedKeys={[dataSource2[0].id]} />
         <div>-----------------</div>
         <div style={{
-          position: 'relative',
-          height: '50px',
-          width: '100%',
-          overflow: 'hidden'
+          // position: 'relative',
+          // height: '50px',
+          // width: '100%',
+          // overflow: 'hidden'
         }}>
         <ReactIScroll iScroll={iScroll} options={{
           mouseWheel: true,
@@ -162,7 +163,57 @@ export default class Mine extends Component {
           </ul>
         </ReactIScroll>
 
+        <div>-----------------</div>
+
+        <div style={{
+          width: '100%',
+          overflowX: 'auto'
+        }}>
+        <ul className="iScroll-ul">
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+            <li>111</li>
+          </ul>
         </div>
+
+        </div>
+
+        <div>------------------</div>
+        <DraggleLayout draggleBorder="right" max={150} min={50} style={{
+          border: '1px solid #333',
+          width: 300,
+          height: 100,
+        }}>
+          <div>1312312</div>
+          <div>1312312</div>
+          <div>1312312</div>
+          <div>1312312</div>
+        </DraggleLayout>
+
+
       </div>
     )
   }
