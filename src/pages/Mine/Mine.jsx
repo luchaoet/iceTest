@@ -7,6 +7,8 @@ import { uuid } from '../../utils/tools'
 import ReactIScroll from 'react-iscroll'
 import iScroll from 'iscroll'
 import DraggleLayout from "../../components/DraggleLayout";
+import Excel from "../../components/Excel";
+
 
 export default class Mine extends Component {
   constructor(props) {
@@ -117,6 +119,10 @@ export default class Mine extends Component {
     const { dataSource2 } = this.state;
     return (
       <div>
+        <Excel />
+
+        <div>------------------</div>
+
         {/* ver 垂直 hoz 水平 */}
         <DraggleLayout direction="ver" max="100% - 500px" min='10%' style={{
           border: '1px solid #333',

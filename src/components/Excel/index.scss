@@ -1,0 +1,19 @@
+.excel-wrap {
+  position: relative;
+  canvas {
+    position: absolute;
+  }
+  .excel-canvas-spreadtable {
+    z-index: 99;
+  }
+  .excel-canvas-plugin {
+    z-index: 100;
+  }
+}
+#excel-wrap {
+  canvas {
+    border: 1px solid #237245;
+    background-color: #fff;
+    user-select: none;
+  }
+}
