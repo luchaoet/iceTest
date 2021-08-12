@@ -133,3 +133,24 @@ export const uuid = () => {
   );
   return _uuid;
 };
+
+export const type = (obj) => {
+  var class2type = {
+    // [object Array]: "array",
+    // [object Boolean]: "boolean",
+    // [object Date]: "date",
+    // [object Error]: "error",
+    // [object Function]: "function",
+    // [object Number]: "number",
+    // [object Object]: "object",
+    // [object RegExp]: "regexp",
+    // [object String]: "string"
+  };
+  "Boolean Number String Function Array Date RegExp Object Error"
+    .split(" ")
+    .forEach((name) => {
+      class2type["[object " + name + "]"] = name.toLowerCase();
+    });
+
+  return obj == null ? String(obj) : class2type[toString.call(obj)] || "object";
+};

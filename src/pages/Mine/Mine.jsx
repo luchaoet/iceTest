@@ -117,6 +117,63 @@ export default class Mine extends Component {
     const { dataSource2 } = this.state;
     return (
       <div>
+        {/* ver 垂直 hoz 水平 */}
+        <DraggleLayout direction="ver" max="100% - 500px" min='10%' style={{
+          border: '1px solid #333',
+          width: '100%',
+          height: 200
+        }}>
+          <DraggleLayout.A>111</DraggleLayout.A>
+          <DraggleLayout.B style={{
+            borderLeft: '1px solid #333',
+            display: 'flex'
+          }}>
+            <div style={{
+              flexGrow: 1,
+              width: 20,
+            }}>
+              <ul style={{
+                display: 'flex',
+                flexWrap: 'nowrap',
+                overflowX: 'auto'
+              }}>
+                <li>11</li>
+                <li>11</li>
+                <li>11</li>
+                <li>11</li>
+                <li>11</li>
+                <li>11</li>
+                <li>11</li>
+                <li>11</li>
+                <li>11</li>
+                <li>11</li>
+                <li>11</li>
+                <li>11</li>
+              </ul>
+            </div>
+            <div style={{
+              width: 300,
+              height: '100%'
+            }}>1</div>
+          </DraggleLayout.B>
+        </DraggleLayout>
+
+        <div>------------------</div>
+
+        <DraggleLayout direction="hoz" max="80%" min='10%' style={{
+          border: '1px solid #333',
+          height: 500
+        }}>
+          <DraggleLayout.A>111</DraggleLayout.A>
+          <DraggleLayout.B style={{
+            borderTop: '1px solid #333',
+          }}>
+            2222
+          </DraggleLayout.B>
+        </DraggleLayout>
+
+        <div>------------------</div>
+
         <Menu draggable dataSource={dataSource1} expandedKeys={["hei4"]} />
         <div>-----------------</div>
         <Tree dataSource={dataSource2} defaultExpandedKeys={[dataSource2[0].id]} />
@@ -201,17 +258,7 @@ export default class Mine extends Component {
 
         </div>
 
-        <div>------------------</div>
-        <DraggleLayout draggleBorder="right" max={150} min={50} style={{
-          border: '1px solid #333',
-          width: 300,
-          height: 100,
-        }}>
-          <div>1312312</div>
-          <div>1312312</div>
-          <div>1312312</div>
-          <div>1312312</div>
-        </DraggleLayout>
+        
 
 
       </div>

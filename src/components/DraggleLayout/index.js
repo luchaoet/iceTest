@@ -1,21 +1,65 @@
-import React, { Component } from "react";
+import React from "react";
 import cx from "classnames";
+import { type } from "../../utils/tools";
 import "./index.scss";
 
-const border = {
-  right: "right",
-  top: "top",
-  left: "left",
-  bottom: "bottom",
+const directionEnum = {
+  ver: "ver", // 垂直
+  hoz: "hoz", // 水平
 };
 
-export default class DraggleLayout extends Component {
+export default class DraggleLayout extends React.Component {
   constructor(props) {
     super(props);
+    const { direction, min = 50, max = 200 } = props;
+    const _direction = directionEnum[direction] || "ver";
     this.state = {
-      style: props.style,
-      draggleBorder: border[props.draggleBorder] || "top",
+      aStyle: {
+        [_direction === "ver" ? "width" : "height"]: max,
+      },
+      direction: _direction,
     };
+  }
+
+  componentDidMount() {
+    const { max = 200 } = this.props;
+    this.setAttribute(max);
+  }
+
+  transformNumber(value, number = 0) {
+    // 100 100.01
+    if (/^[\d\.]*$/.test(value)) {
+      return Number(Number(value).toFixed(1));
+    }
+    // 100px 100.01px
+    else if (/^[\d\.]*px$/.test(value)) {
+      return parseInt(value);
+    }
+    // 100% 10.01%
+    else if (/^[\d\.]*%$/.test(value)) {
+      return number * (parseInt(value) / 100);
+    }
+    // 100% - 10px
+    else if (/^[\w|%| ]*-[ |\w|%]*$/.test(value)) {
+      const [a, b] = value.match(/[\w|%]+/g);
+      return this.transformNumber(a, number) - this.transformNumber(b, number);
+    }
+  }
+
+  setAttribute(value) {
+    const { direction, min = 50, max = 200 } = this.props;
+    const _direction = directionEnum[direction] || "ver";
+    const key = _direction === "ver" ? "width" : "height";
+    const area = getComputedStyle(this.refs.draggleLayout, "")[key];
+    const _area = this.transformNumber(area);
+    const _value = this.transformNumber(value, _area);
+    const _min = this.transformNumber(min, _area);
+    const _max = this.transformNumber(max, _area);
+    const v = this.rangeValue(_value, _min, _max);
+    this.setState({
+      aStyle: { [key]: v },
+      bStyle: { [key]: _area - v },
+    });
   }
 
   //计算是否超出屏幕
@@ -33,26 +77,29 @@ export default class DraggleLayout extends Component {
     return true;
   };
 
+  rangeValue(value, min, max) {
+    if (value < min) {
+      return min;
+    } else if (value > max) {
+      return max;
+    } else {
+      return value;
+    }
+  }
+
   onMouseDown = (e) => {
     e.preventDefault();
-    let startPosX = e.clientX;
-    let startPosY = e.clientY;
-    const _this = this;
-    const { style, draggleBorder } = this.state;
+    const startPosX = e.clientX;
+    const startPosY = e.clientY;
+    const that = this;
+    const { aStyle, direction } = this.state;
     document.body.onmousemove = (e) => {
-      let left = e.clientX - startPosX;
-      let top = e.clientY - startPosY;
+      const left = e.clientX - startPosX;
+      const top = e.clientY - startPosY;
       if (this.InWindow(e.clientX, e.clientY, startPosX, startPosY)) {
         const size =
-          draggleBorder === "top" || draggleBorder === "bottom"
-            ? { height: style.height + top }
-            : { width: style.width + left };
-        _this.setState({
-          style: {
-            ...style,
-            ...size,
-          },
-        });
+          direction === "ver" ? aStyle.width + left : aStyle.height + top;
+        this.setAttribute(size);
       } else {
         document.body.onmousemove = null;
         document.body.onmouseup = null;
@@ -64,18 +111,62 @@ export default class DraggleLayout extends Component {
     };
   };
 
+  handleChildren() {
+    const children = this.props.children;
+    const _children = {};
+    if (type(children) === "object") {
+      _children[children.type.displayName] = children;
+    } else {
+      for (const chid of children) {
+        _children[chid.type.displayName] = chid;
+      }
+    }
+    return _children;
+  }
+
   render() {
-    const { children = null, min = 50, max = 200 } = this.props;
-    const { style, draggleBorder } = this.state;
-    const className = cx(
-      "draggle-layout-border",
-      `draggle-layout-border-${draggleBorder}`
+    const children = this.handleChildren();
+    const { className, style } = this.props;
+    const { direction, aStyle, bStyle } = this.state;
+    const wrapClass = cx(
+      className,
+      "draggle-layout-wrap",
+      `draggle-layout-wrap-${direction}`
     );
+    const draggleClass = cx(
+      "draggle-layout-border",
+      `draggle-layout-border-${direction}`
+    );
+
+    const {
+      className: classNameA,
+      style: styleA,
+      ...othersA
+    } = children.A.props;
+    const {
+      className: classNameB,
+      style: styleB,
+      ...othersB
+    } = children.B.props;
+    const aClass = cx("draggle-layout-a", classNameA);
+    const bClass = cx("draggle-layout-b", classNameB);
     return (
-      <div style={style} className="draggle-layout-wrap">
-        <p className={className} onMouseDown={this.onMouseDown} />
-        <div className="draggle-layout-container">{children}</div>
+      <div ref="draggleLayout" style={style} className={wrapClass}>
+        <div className={aClass} style={{ ...styleA, ...aStyle }} {...othersA}>
+          {children.A}
+          <p className={draggleClass} onMouseDown={this.onMouseDown} />
+        </div>
+        <div className={bClass} style={{ ...styleB, ...bStyle }} {...othersB}>
+          {children.B}
+        </div>
       </div>
     );
   }
 }
+
+["A", "B"].forEach((item) => {
+  DraggleLayout[item] = function ({ children = null }) {
+    return children;
+  };
+  DraggleLayout[item]["displayName"] = item;
+});
