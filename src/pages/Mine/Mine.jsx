@@ -119,7 +119,9 @@ export default class Mine extends Component {
     const { dataSource2 } = this.state;
     return (
       <div>
-        <Excel />
+        <div className="mine-excel-wrap">
+          <Excel />
+        </div>
 
         <div>------------------</div>
 
