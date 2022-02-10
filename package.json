@@ -18,7 +18,7 @@
     "foundation-symbol": "^0.1.0",
     "iscroll": "^5.2.0",
     "markdown-react-js": "^1.0.2",
-    "node-sass": "^4.14.0",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.5.8",
     "react-document-title": "^2.0.3",
     "react-iscroll": "^2.0.3",
